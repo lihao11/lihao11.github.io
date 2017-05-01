@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width,
+  									initial-scale=1,
+  									maximum-scale=1,
+  									user-scalable=no">
+    <title>Bootstrap 实例 - 自定义缩略图</title>
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.row{
+  		align-items: center;
+  		align-self: center;
+  	}
+  	h3{
+  		text-align: center;
+  		padding-bottom: 4px;
+  		border-bottom: 1px solid black;
+  	}
+  	.firstp{
+  		text-indent: 2em;
+  	}
+  	nav{
+  		position: fixed;
+  		top: 0px;
+  	}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">苶敏敏和傻狍子</a>
+		</div>
+		<div class="collapse navbar-collapse" id="example-navbar-collapse">
+			<ul class="nav navbar-nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#Boy">Boy</a></li>
+				<li><a data-toggle="tab" href="#Girl">Girl</a></li>
+				<li><a data-toggle="tab" href="#We">We</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="tab-content">
+<div class="tab-pane fade in active row" id="Boy">
+	<div class="col-sm-12 col-md-3" id="xiaomianao">
+        <div class="thumbnail">
+            <img src="./傻狍子.jpg" class="img-responsive">
+            <div class="caption">
+                <h3>傻狍子</h3>
+                <p class="firstp"><q>世人笑我太疯癫，我笑他人看不穿。</q>咳咳，傻怎么了，怪我占了你天下第一傻的位子吗？哼哼~</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade row" id="Girl">
+   
+    <div class="col-sm-12 col-md-3" id="lixiaozhao">
+        <div class="thumbnail">
+            <img src="./李小钊.jpg" class="img-responsive" 
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h3>小棉袄</h3>
+                <p class="firstp">你送我吃的，给我买药，你是我的小棉袄。你可能不知道，我也可能不知道。。。公元2016年11月10日，方圆十里最大的流氓栽在我手里。</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+     <div class="col-sm-12 col-md-3" id="xiaomianao">
+        <div class="thumbnail">
+            <img src="./两小无猜.jpg" class="img-responsive">
+            <div class="caption">
+                <h3>小棉袄</h3>
+                <p class="firstp">你送我吃的，给我买药，你是我的小棉袄。你可能不知道，我也可能不知道。。。公元2016年11月10日，方圆十里最大的流氓栽在我手里。</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="tab-pane fade row" id="We">
+    <div class="col-sm-12 col-md-3" id="luoxiaohei">
+        <div class="thumbnail">
+            <img src="./罗小黑.jpg" class="img-responsive">
+            <div class="caption">
+                <h3>罗小黑</h3>
+                <p class="firstp">能找到一个有共同爱好的人是那么的不容易，更何况我恰巧那么在乎你，一个人出生在这个世界上大概是来受罪的，如果是这样，我非要上帝在你身上尝尝失败的滋味。李小钊同志，我喜欢你，想要你做我媳妇的那种喜欢。</p>
+                <p>
+                    <a href="#" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>    	
+    </div>
+</body>
+</html>
