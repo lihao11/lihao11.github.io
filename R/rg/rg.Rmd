@@ -1,0 +1,78 @@
+---
+title: "R语言回归分析相关函数总结"
+output: html_notebook
+---
+### 案例数据
+```{r}
+x <- seq(0.10,0.23,0.01)
+y <- c(42.0,43.5,45.0,45.5,45.0,47.5,
+       49.0,53.0,50.0,52.0,55.0,55.0,57.0,60.0)
+```
+### 建立线性模型
+```{r}
+lm.sol <- lm(y ~ 1 + x)
+summary(lm.sol)$coefficients
+```
+
+### 模型分析
+#### 提取参数估计值
+```{r}
+coefficients(lm.sol)
+```
+#### 提取模型公式
+```{r}
+formula(lm.sol)
+```
+#### 模型残差
+```{r}
+residuals(lm.sol)
+```
+
+### 方差分析
+```{r}
+anova(lm.sol)
+```
+### 逐步回归
+```{r}
+step(lm.sol)
+```
+
+### 更新模型公式
+```{r}
+update(lm.sol,.~.+I(x^2))
+```
+
+
+### 建立区间估计函数
+```{r}
+beta.int <- function(fm,alpha=0.05){
+  A <- summary(fm)$coefficients
+  df <- fm$df.residual
+  left <- A[,1] - A[,2]*qt(1-alpha/2,df)
+  right <- A[,1] + A[,2]*qt(1-alpha/2,df)
+  rowname <- dimnames(A)[[1]]
+  colname <- c("Estimate","Left","Right")
+  matrix(c(A[,1],left,right),ncol=3,
+         dimnames = list(rowname,colname))
+}
+```
+
+### 区间估计
+```{r}
+beta.int(lm.sol)
+```
+### 预测
+```{r}
+new <- data.frame(x = c(0.16,0.17))
+predict(lm.sol,new,interval = "prediction",level = 0.95)
+```
+### 图像
+```{r}
+D <- data.frame(x=x,y=y)
+ggplot(D,aes(x,y))+geom_point()+geom_line(aes(x,predict(lm.sol),colour=I("steelblue")))
+```
+#### 模型诊断图
+```{r}
+plot(lm.sol)
+```
+
