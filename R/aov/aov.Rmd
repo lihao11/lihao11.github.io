@@ -1,0 +1,60 @@
+---
+title: "R语言做方差分析"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+author: 李浩 A41514003
+date: Aug,25,2017
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 简介 
+R语言作为一门统计语言，在方差分析上也有独特的语法支持。大概分为以下步骤：
+
+- 导入数据
+- 建立模型
+- 得到方差分析表
+
+
+## 导入数据
+```{r}
+lamp <- data.frame(
+  X = c(1600,1610,1650,1680,1700,1700,1780,1500,1640,
+        1400,1700,1750,1640,1550,1600,1620,1640,1600,
+        1740,1800,1510,1520,1530,1570,1640,1600),
+  A = factor(c(rep(1,7),rep(2,5),rep(3,8),rep(4,6)))
+);lamp[1:4,]
+```
+
+## 建立模型
+```{r}
+m1 <- lm(X ~ A,data=lamp)
+```
+`lm`是R语言建立线性模型的函数，不仅可用于线性回归分析，在方差分析中同样可以使用。另外还可以使用`aov`函数建立方差分析模型。
+```{r}
+m2 <- aov(X ~ A,data=lamp)
+```
+
+## 得到方法分析表
+```{r}
+am1 <- anova(m1);am1
+```
+对使用`aov`建立的方差分析可以使用`summary`函数达到相同的效果。
+```{r}
+summary(m2)
+```
+
+## 结果分析
+由上面得到结果，我们看到p-value = 0.1208 > 0.05
+我们认为组间方差不够显著，也就是说A的取值对X没有显著影响。
+
+## 图像展示
+
+```{r}
+library(ggplot2)
+ggplot(lamp,aes(A,X))+geom_boxplot()
+```
+
